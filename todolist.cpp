@@ -13,7 +13,7 @@ Task ToDoList::createTask(QString title, QDate deadline, bool important)
 
 void ToDoList::addTask(Task task)
 {
-
+    schedule.push_back(task);
 }
 
 std::vector<Task> &ToDoList::getSchedule()

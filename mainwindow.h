@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QListWidgetItem>
 #include <QMainWindow>
 #include "todolist.h"
 
@@ -19,10 +20,13 @@ public:
 
 private slots:
     void on_addBtn_clicked();
+    void createDescription();
+    void on_listWidget_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::MainWindow *ui;
     ToDoList todo;
     int lastRow {0};
+    Task currentTask;
 };
 #endif // MAINWINDOW_H

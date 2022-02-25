@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     descriptiondialog.cpp \
+    descriptionscript.cpp \
     main.cpp \
     mainwindow.cpp \
     task.cpp \
@@ -17,12 +18,14 @@ SOURCES += \
 
 HEADERS += \
     descriptiondialog.h \
+    descriptionscript.h \
     mainwindow.h \
     task.h \
     todolist.h
 
 FORMS += \
     descriptiondialog.ui \
+    descriptionscript.ui \
     mainwindow.ui
 
 # Default rules for deployment.
