@@ -13,7 +13,7 @@ public:
         schedule.clear();
     }
 
-    Task createTask(QString title, QDate deadline, bool important=false);   // implementare le funzioni
+    Task createTask(QString title, QDate deadline, bool important=false);   // implementare le funzioni //forse da sostituire con il costruttore
     void checkTask(int taskNumber);
     void editTask(int taskNumber);
     void removeTask(int taskNumber);

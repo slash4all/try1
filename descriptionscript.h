@@ -16,12 +16,13 @@ public:
     explicit DescriptionScript(Task* task, QWidget *parent = nullptr);
     ~DescriptionScript();
 
+
 private slots:
     void on_buttonBox_accepted();
 
 private:
     Ui::DescriptionScript *ui;
-    Task* task;
+    Task* task; //puntatore o non puntatore?
 };
 
 #endif // DESCRIPTIONSCRIPT_H

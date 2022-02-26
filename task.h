@@ -22,6 +22,7 @@ public:
     bool getChecked();
     bool getImportant();
 
+
 private:
     QString title;
     QDate date;

@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowTitle("ToDo List");
     ui->dateEdit->setDate(QDate::currentDate());
     path = QDir::currentPath();
-    qDebug() << path;
+    //qDebug() << path;
 }
 
 MainWindow::~MainWindow()
@@ -30,10 +30,12 @@ void MainWindow::on_addBtn_clicked()
     currentTask = todo.createTask(ui->lineEdit->text(), ui->dateEdit->date(), ui->checkBox->isChecked());
     descriptionDialog* dd = new descriptionDialog(this);
     if(dd->exec() != 0){
-        createDescription();
+        if(dd->getClicked() != true)
+            createDescription();
+        todo.addTask(currentTask);
+         updateToDo();
     }
-    todo.addTask(currentTask);
-    updateToDo();
+
 }
 
 void MainWindow::createDescription()
