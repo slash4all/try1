@@ -3,6 +3,7 @@
 
 #include <QListWidgetItem>
 #include <QMainWindow>
+#include <QDir>
 #include "todolist.h"
 
 QT_BEGIN_NAMESPACE
@@ -24,6 +25,7 @@ private slots:
     void on_listWidget_itemClicked(QListWidgetItem *item);
 
 private:
+    QDir path;               // contains the path of the builded app
     Ui::MainWindow *ui;
     ToDoList todo;
     int lastRow {0};

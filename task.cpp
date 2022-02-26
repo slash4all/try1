@@ -26,3 +26,8 @@ QDate Task::getDate()
 {
     return date;
 }
+
+bool Task::getImportant()
+{
+    return important;
+}
