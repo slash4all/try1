@@ -49,7 +49,7 @@ void MainWindow::updateToDo()
         currentTask = todo.getSchedule()[i];
         QListWidgetItem *item = new QListWidgetItem;
         item->setCheckState(Qt::Unchecked);
-        item->setText(QString( currentTask.getTitle() + "\t" + currentTask.getDate().toString("dd.MM.yyyy") +"\t"));
+        item->setText(QString(currentTask.getDate().toString("dd.MM.yyyy") +"\t" + currentTask.getTitle() + "\t"));
         if (currentTask.getImportant()){
             item->setIcon(QIcon(path.absolutePath() + "/debug/img/imp_logo.png"));                // the absolute path is the one of build-try1-Desktop_Qt_6_2_3_MinGW_64_bit-Debug
         }                                                                                         // needed to add the img dir to the debug dir in that path
@@ -60,11 +60,14 @@ void MainWindow::updateToDo()
 
 void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
+    int index = ui->listWidget->currentRow();
+    currentTask = todo.getSchedule()[index];
     QFont font = QFont();
     if (item->checkState() == Qt::Checked)
         font.setStrikeOut(true);
     else
         font.setStrikeOut(false);
     item->setFont(font);
+    ui->descriptionEdit->setText(currentTask.getDescription());
 }
 

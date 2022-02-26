@@ -27,6 +27,11 @@ QDate Task::getDate()
     return date;
 }
 
+QString Task::getDescription()
+{
+    return description;
+}
+
 bool Task::getImportant()
 {
     return important;
