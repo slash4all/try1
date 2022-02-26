@@ -17,6 +17,11 @@ void Task::setDescription(QString description)
     this->description = description;
 }
 
+void Task::setChecked(bool check)
+{
+    checked = check;
+}
+
 QString Task::getTitle()
 {
     return title;
@@ -30,6 +35,11 @@ QDate Task::getDate()
 QString Task::getDescription()
 {
     return description;
+}
+
+bool Task::getChecked()
+{
+    return checked;
 }
 
 bool Task::getImportant()

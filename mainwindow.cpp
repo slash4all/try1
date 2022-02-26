@@ -44,11 +44,18 @@ void MainWindow::createDescription()
 
 void MainWindow::updateToDo()
 {
+    ui->lineEdit->clear();
+    ui->dateEdit->setDate(QDate::currentDate());
+    ui->checkBox->setCheckState(Qt::Unchecked);
+    ui->descriptionEdit->clear();
     ui->listWidget->clear();
     for (int i = 0; i < todo.getSchedule().size(); i++ ) {      // for ( int i = todo.getSchedule().size() - 1; i >= 0 ; i --) ???
         currentTask = todo.getSchedule()[i];
         QListWidgetItem *item = new QListWidgetItem;
-        item->setCheckState(Qt::Unchecked);
+        if(currentTask.getChecked())
+            item->setCheckState(Qt::Checked);
+        else
+            item->setCheckState(Qt::Unchecked);
         item->setText(QString(currentTask.getDate().toString("dd.MM.yyyy") +"\t" + currentTask.getTitle() + "\t"));
         if (currentTask.getImportant()){
             item->setIcon(QIcon(path.absolutePath() + "/debug/img/imp_logo.png"));                // the absolute path is the one of build-try1-Desktop_Qt_6_2_3_MinGW_64_bit-Debug
@@ -61,12 +68,18 @@ void MainWindow::updateToDo()
 void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
     int index = ui->listWidget->currentRow();
+    if (index < 0)
+        index = lastRow;
     currentTask = todo.getSchedule()[index];
     QFont font = QFont();
-    if (item->checkState() == Qt::Checked)
+    if (item->checkState() == Qt::Checked){
+        currentTask.setChecked(true);
         font.setStrikeOut(true);
-    else
+    }
+    else{
+        currentTask.setChecked(false);
         font.setStrikeOut(false);
+    }
     item->setFont(font);
     ui->descriptionEdit->setText(currentTask.getDescription());
 }

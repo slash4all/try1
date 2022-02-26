@@ -25,8 +25,8 @@ public:
 private:
     QString title;
     QDate date;
-    QString description;
-    bool checked;
+    QString description {""};
+    bool checked {false};
     bool important;
 };
 
