@@ -2,10 +2,10 @@
 #include "ui_descriptiondialog.h"
 
 descriptionDialog::descriptionDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::descriptionDialog)
+    QDialog(parent), ui(new Ui::descriptionDialog)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Bertolazo");
 
 }
 
@@ -15,24 +15,14 @@ descriptionDialog::~descriptionDialog()
 }
 
 
-void descriptionDialog::reject()
-{
-    this->abort = true;
-    QDialog::reject();
-}
-
 void descriptionDialog::on_chooseBtn_rejected()
 {
-    this->clicked = true;
+    this->rejectClicked = true;
 }
 
 bool descriptionDialog::getClicked() const
 {
-    return clicked;
+    return rejectClicked;
 }
 
-bool descriptionDialog::getAbort() const
-{
-    return abort;
-}
 

@@ -7,6 +7,8 @@ namespace Ui {
 class descriptionDialog;
 }
 
+//interfaccia per selezionare o meno di aggiungere una descrizione ad una task
+
 class descriptionDialog : public QDialog
 {
     Q_OBJECT
@@ -15,10 +17,6 @@ public:
     explicit descriptionDialog(QWidget *parent = nullptr);
     ~descriptionDialog();
 
-     void reject() override;
-
-     bool getAbort() const;
-
      bool getClicked() const;
 
 private slots:
@@ -26,9 +24,9 @@ private slots:
      void on_chooseBtn_rejected();
 
 private:
-    bool clicked {false};
+    bool rejectClicked {false};
     Ui::descriptionDialog *ui;
-    bool abort {false};
+
 };
 
 #endif // DESCRIPTIONDIALOG_H
