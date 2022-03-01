@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<<<<<<< HEAD
-<!-- Written by QtCreator 6.0.2, 2022-02-28T14:34:05. -->
-=======
-<!-- Written by QtCreator 6.0.2, 2022-02-27T20:18:49. -->
->>>>>>> 3e0a7bda79d4ddd686262847ff4365c83f990aea
+<!-- Written by QtCreator 6.0.2, 2022-03-01T12:33:09. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -247,23 +243,14 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-<<<<<<< HEAD
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/vigno/Documents/Qt_Projects/try1/try1.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/vigno/Documents/Qt_Projects/try1/try1.pro</value>
-=======
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/TestQt/try1/try1.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/TestQt/try1/try1.pro</value>
->>>>>>> 3e0a7bda79d4ddd686262847ff4365c83f990aea
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-<<<<<<< HEAD
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/vigno/Documents/Qt_Projects/build-try1-Desktop_Qt_6_2_3_MinGW_64_bit-Debug</value>
-=======
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">D:/TestQt/build-try1-Desktop_Qt_6_2_3_MinGW_64_bit-Debug</value>
->>>>>>> 3e0a7bda79d4ddd686262847ff4365c83f990aea
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

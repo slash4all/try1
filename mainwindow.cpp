@@ -51,15 +51,20 @@ void MainWindow::updateToDo()
     ui->checkBox->setCheckState(Qt::Unchecked);
     ui->descriptionEdit->clear();
     ui->listWidget->clear(); //importante altrimenti ogni volta stamperei anche le task inserite precedentemente
-    for (int i = 0; i < todo.getSchedule().size(); i++ ) {      // for ( int i = todo.getSchedule().size() - 1; i >= 0 ; i --) ???
-        currentTask = todo.getSchedule()[i];
+    for (auto task: todo.getSchedule()) {      // for ( int i = todo.getSchedule().size() - 1; i >= 0 ; i --) ???
         QListWidgetItem *item = new QListWidgetItem;
-        if(currentTask.getChecked())
+        if(task.getChecked()){
+            QFont font = QFont();
+//            font.setWeight(QFont::Bold);
+            font.setStrikeOut(true);
+//            ui->descriptionEdit->setFont(font);
+            item->setFont(font);
             item->setCheckState(Qt::Checked);
+        }
         else
             item->setCheckState(Qt::Unchecked);
-        item->setText(QString(currentTask.getDate().toString("dd.MM.yyyy") +"\t" + currentTask.getTitle() + "\t"));
-        if (currentTask.getImportant()){
+        item->setText(QString(task.getDate().toString("dd.MM.yyyy") +"\t" + task.getTitle() + "\t"));
+        if (task.getImportant()){
             item->setIcon(QIcon(path.absolutePath() + "/debug/img/imp_logo.png"));                // the absolute path is the one of build-try1-Desktop_Qt_6_2_3_MinGW_64_bit-Debug
         }                                                                                         // needed to add the img dir to the debug dir in that path
         ui->listWidget->addItem(item);
@@ -72,18 +77,18 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
     int index = ui->listWidget->currentRow(); //come mai parte da -1??
     if (index < 0)
         index = lastRow;
-    currentTask = todo.getSchedule()[index];
+    Task &task = todo.getSchedule()[index];
     QFont font = QFont();
     if (item->checkState() == Qt::Checked){
-        currentTask.setChecked(true); //ma non è già settato a true??
+        task.setChecked(true); //ma non è già settato a true??
         font.setStrikeOut(true);
     }
     else{
-        currentTask.setChecked(false);
+        task.setChecked(false);
         font.setStrikeOut(false);
     }
     ui->descriptionEdit->setFont(font);
     item->setFont(font);
-    ui->descriptionEdit->setText(currentTask.getDescription());
+    ui->descriptionEdit->setText(task.getDescription());
 }
 
