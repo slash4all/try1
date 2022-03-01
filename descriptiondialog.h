@@ -15,20 +15,14 @@ public:
     explicit descriptionDialog(QWidget *parent = nullptr);
     ~descriptionDialog();
 
-     void reject() override;
-
-     bool getAbort() const;
-
-     bool getClicked() const;
+    bool getClicked() const;
 
 private slots:
-
-     void on_chooseBtn_rejected();
+    void on_chooseBtn_rejected();
 
 private:
     bool clicked {false};
     Ui::descriptionDialog *ui;
-    bool abort {false};
 };
 
 #endif // DESCRIPTIONDIALOG_H

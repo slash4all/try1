@@ -33,7 +33,7 @@ void MainWindow::on_addBtn_clicked()
         if(dd->getClicked() != true)
             createDescription();
         todo.addTask(currentTask);
-         updateToDo();
+        updateToDo();
     }
 
 }
@@ -82,6 +82,7 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
         currentTask.setChecked(false);
         font.setStrikeOut(false);
     }
+    ui->descriptionEdit->setFont(font);
     item->setFont(font);
     ui->descriptionEdit->setText(currentTask.getDescription());
 }
