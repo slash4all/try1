@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     //qDebug() << path;
 }
 
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -38,11 +39,13 @@ void MainWindow::on_addBtn_clicked()
 
 }
 
+
 void MainWindow::createDescription()
 {
     DescriptionScript* ds = new DescriptionScript(&currentTask, this);
     ds->exec();
 }
+
 
 void MainWindow::updateToDo()
 {
@@ -72,15 +75,14 @@ void MainWindow::updateToDo()
     return;
 }
 
+
 void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
-    int index = ui->listWidget->currentRow(); //come mai parte da -1??
-    if (index < 0)
-        index = lastRow;
-    Task &task = todo.getSchedule()[index];
+    int index = ui->listWidget->indexFromItem(item).row();   // così prendo l'informazione dell'indice dall'oggetto che è cambiato
+    Task &task = todo.getSchedule()[index];                  // e non dalla riga selezionata
     QFont font = QFont();
     if (item->checkState() == Qt::Checked){
-        task.setChecked(true); //ma non è già settato a true??
+        task.setChecked(true);                         // ma non è già settato a true??
         font.setStrikeOut(true);
     }
     else{
