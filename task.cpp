@@ -2,7 +2,7 @@
 
 Task::Task()
 {
-
+    //more code here...
 }
 
 Task::Task(QString title, QDate deadline, bool important)

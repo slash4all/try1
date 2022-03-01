@@ -4,6 +4,8 @@
 #include <QString>
 #include <QDate>
 
+//Classe base che mi raccoglie tutte le informazioni di una task
+
 class Task
 {
 public:

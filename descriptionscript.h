@@ -8,12 +8,15 @@ namespace Ui {
 class DescriptionScript;
 }
 
+//Interfaccia per aggiungere una descrizione della task,
+//inoltre deve essere possibile modifica data e nome della task! (TODO)
+
 class DescriptionScript : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit DescriptionScript(Task* task, QWidget *parent = nullptr);
+    explicit DescriptionScript(Task* task, QWidget *parent = nullptr); //excplit??
     ~DescriptionScript();
 
 

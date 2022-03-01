@@ -27,11 +27,11 @@ void MainWindow::on_addBtn_clicked()
     // quando pigio il pulsante ADD creo subito una nuova task con i dati inseriti e poi vedo se viene scelto di aggiungere
     // una descrizione, nel qual caso verranno aggiunte informazioni alla task nel corpo dell'if
 
-    currentTask = todo.createTask(ui->lineEdit->text(), ui->dateEdit->date(), ui->checkBox->isChecked());
+    currentTask = todo.createTask(ui->lineEdit->text(), ui->dateEdit->date(), ui->checkBox->isChecked()); //metodo che mi crea la task
     descriptionDialog* dd = new descriptionDialog(this);
     if(dd->exec() != 0){
-        if(dd->getClicked() != true)
-            createDescription();
+        if(dd->getClicked() != true) //entrerò SOLO SE è stato premuto l'OK button
+            createDescription();    //in quel caso potrò chiamare la funzione di createDescription
         todo.addTask(currentTask);
         updateToDo();
     }
@@ -50,7 +50,7 @@ void MainWindow::updateToDo()
     ui->dateEdit->setDate(QDate::currentDate());
     ui->checkBox->setCheckState(Qt::Unchecked);
     ui->descriptionEdit->clear();
-    ui->listWidget->clear();
+    ui->listWidget->clear(); //importante altrimenti ogni volta stamperei anche le task inserite precedentemente
     for (int i = 0; i < todo.getSchedule().size(); i++ ) {      // for ( int i = todo.getSchedule().size() - 1; i >= 0 ; i --) ???
         currentTask = todo.getSchedule()[i];
         QListWidgetItem *item = new QListWidgetItem;
@@ -69,13 +69,13 @@ void MainWindow::updateToDo()
 
 void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
-    int index = ui->listWidget->currentRow();
+    int index = ui->listWidget->currentRow(); //come mai parte da -1??
     if (index < 0)
         index = lastRow;
     currentTask = todo.getSchedule()[index];
     QFont font = QFont();
     if (item->checkState() == Qt::Checked){
-        currentTask.setChecked(true);
+        currentTask.setChecked(true); //ma non è già settato a true??
         font.setStrikeOut(true);
     }
     else{

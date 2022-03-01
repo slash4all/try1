@@ -2,8 +2,7 @@
 #include "ui_descriptionscript.h"
 
 DescriptionScript::DescriptionScript(Task* task, QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::DescriptionScript)
+    QDialog(parent), ui(new Ui::DescriptionScript)
 {
     ui->setupUi(this);
     this->setWindowTitle("Task's Description");
